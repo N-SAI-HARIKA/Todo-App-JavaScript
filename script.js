@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const storedtasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedtasks) {
-        storedtasks.forEach(task => tasks.push(task));
+        storedtasks.forEach(task => tasks.push({
+            text: task.text || '',
+                completed: task.completed || false,
+                dueDate: task.dueDate || '',
+                priority: task.priority || 'low', 
+                category: task.category || 'work'  
+            });
+        });
+            
         updateTasks();
         updateStats();
     }
@@ -56,8 +64,8 @@ const updateTasks = () => {
                 <input type="checkbox" class="checkbox" ${task.completed ? "checked" : ""} />
                 <p>${task.text}</p>
                 <p class="due-date">Due: ${task.dueDate ? task.dueDate : 'No due date'}</p>
-                <span class="priority" style="color:${getPriorityColor(task.priority)};">
-                    ${task.priority.toUpperCase()}</span> 
+               <span class="priority" style="color:${getPriorityColor(task.priority)};">
+                    ${task.priority ? task.priority.toUpperCase() : 'UNKNOWN'}</span>
                 <span class="category">[${task.category}]</span>
             </div>
             <div class="icons">
