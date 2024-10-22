@@ -57,7 +57,7 @@ const updateTasks = () => {
                 <p>${task.text}</p>
                 <p class="due-date">Due: ${task.dueDate ? task.dueDate : 'No due date'}</p>
                 <span class="priority" style="color:${getPriorityColor(task.priority)};">
-                    ${task.priority.toUpperCase()}</span> <!-- Show priority -->
+                    ${task.priority.toUpperCase()}</span> 
                 <span class="category">[${task.category}]</span>
             </div>
             <div class="icons">
