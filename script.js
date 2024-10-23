@@ -129,7 +129,7 @@ const updateStats = () => {
 let confettiAnimationId;
 
 const blastConfetti = () => {
-    const end = Date.now() + 15 * 1000;
+    const end = Date.now() + 5 * 1000;
 
 const colors = ["#bb0000", "#ffffff"];
 
